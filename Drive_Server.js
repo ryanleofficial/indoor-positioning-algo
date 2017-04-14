@@ -1,4 +1,3 @@
-// Open Sources 
 var KalmanFilter 		= require('kalmanjs').default;
 var kalman_filter 		= new KalmanFilter();
 var express    			= require('express');
@@ -8,10 +7,7 @@ var http       			= require('http');
 var bodyParser 			= require('body-parser');
 var optimizedAverage 	= require('optimized-averages');
 
-
-//***********************************
-//*			VARIABLES				*	
-//***********************************
+//Variables
 var sig_prop_constant = 2.0;
 var process_noise = 0.01;	// Kalman parameter {R}
 var measurement_noise = 3;	// Kalman parameter {Q}
@@ -23,7 +19,7 @@ var data_block1 = [];
 var data_block2 = [];
 var data_block3 = [];
 // Static variables for the nodes.
-// ***********	MAKE THE CHANGE HERE **********
+// NOTE: Configure the coordinates (x,y) before run
 var node1 = {
 	name: 'NODE #1',
 	rssi: 0,
@@ -48,12 +44,7 @@ var node3 = {
 	d: 0,
 	d_android:0
 };
-// ***********	MAKE THE CHANGE HERE **********
 
-
-//***********************************
-//*				Function			*	
-//***********************************
 function calculate_D() {
 	var D = $M([
 		[(2*(node2.x - node1.x)), (2*(node2.y - node1.y))],
@@ -125,9 +116,7 @@ function get_Average(arr) {
 	return avg_rssi * (-1);
 }
 
-//***********************************
-//*				MAIN				*	
-//***********************************
+// Start Here
 console.log('Initializing Kalman Filter....');
 	kalman_filter = new KalmanFilter({R: process_noise, Q: measurement_noise});
 console.log('Calculating maxtrix D....');

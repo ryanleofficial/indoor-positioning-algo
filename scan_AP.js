@@ -1,7 +1,7 @@
 var wifiscanner = require('node-wifiscanner');
 var http = require('http');
 var post_options = {
-     hostname: 'ENTER_IP',
+     hostname: 'SERVER_IP_GOES_HERE',
      port: 80,
      path: '/pi',
      method: 'POST',

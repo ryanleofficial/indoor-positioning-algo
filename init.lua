@@ -1,3 +1,4 @@
+-- Creating Access Point (WPA)
 print("ESP8266 Server")
 wifi.setmode(wifi.STATIONAP);
 wifi.ap.config({ssid="Node1",pwd="12345678"}); -- Change the ssid whatever
